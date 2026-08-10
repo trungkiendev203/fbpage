@@ -1,0 +1,29 @@
+{
+  "name": "worker-engine",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev src/index.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.18.0",
+    "ai-gemini": "file:../../packages/ai-gemini",
+    "bullmq": "^5.12.0",
+    "db-prisma": "file:../../packages/db-prisma",
+    "dotenv": "^16.4.5",
+    "facebook-client": "file:../../packages/facebook-client",
+    "ioredis": "^5.4.1",
+    "media-processor": "file:../../packages/media-processor",
+    "scraper-adapters": "file:../../packages/scraper-adapters",
+    "secret-manager": "file:../../packages/secret-manager",
+    "shared-types": "file:../../packages/shared-types"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  }
+}

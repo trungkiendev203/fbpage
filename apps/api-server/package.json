@@ -1,0 +1,37 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev src/index.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.18.0",
+    "ai-gemini": "file:../../packages/ai-gemini",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "db-prisma": "file:../../packages/db-prisma",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "facebook-client": "file:../../packages/facebook-client",
+    "jsonwebtoken": "^9.0.2",
+    "media-processor": "file:../../packages/media-processor",
+    "scraper-adapters": "file:../../packages/scraper-adapters",
+    "secret-manager": "file:../../packages/secret-manager",
+    "shared-types": "file:../../packages/shared-types"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.14.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  }
+}

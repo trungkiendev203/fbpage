@@ -1,0 +1,25 @@
+{
+  "name": "db-prisma",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "seed": "ts-node prisma/seed.ts",
+    "build": "prisma generate && tsc"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.18.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20.14.0",
+    "bcrypt": "^5.1.1",
+    "prisma": "^5.18.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}

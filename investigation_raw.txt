@@ -1,0 +1,968 @@
+
+===== WEB ADMIN DETAIL =====
+===== WEB ADMIN DETAIL =====
+[1m[7m Describing process with id 0 - name web-admin [27m[22m
+[90m┌───────────────────┬──────────────────────────────────────┐[39m
+[90m│[39m[1m[36m status            [39m[22m[90m│[39m [31m[1merrored[22m[39m                              [90m│[39m
+[90m│[39m[1m[36m name              [39m[22m[90m│[39m web-admin                            [90m│[39m
+[90m│[39m[1m[36m namespace         [39m[22m[90m│[39m default                              [90m│[39m
+[90m│[39m[1m[36m version           [39m[22m[90m│[39m N/A                                  [90m│[39m
+[90m│[39m[1m[36m restarts          [39m[22m[90m│[39m 15                                   [90m│[39m
+[90m│[39m[1m[36m uptime            [39m[22m[90m│[39m 0                                    [90m│[39m
+[90m│[39m[1m[36m script path       [39m[22m[90m│[39m /usr/bin/bash                        [90m│[39m
+[90m│[39m[1m[36m script args       [39m[22m[90m│[39m -c pnpm --filter web-admin run start [90m│[39m
+[90m│[39m[1m[36m error log path    [39m[22m[90m│[39m /root/.pm2/logs/web-admin-error.log  [90m│[39m
+[90m│[39m[1m[36m out log path      [39m[22m[90m│[39m /root/.pm2/logs/web-admin-out.log    [90m│[39m
+[90m│[39m[1m[36m pid path          [39m[22m[90m│[39m /root/.pm2/pids/web-admin-0.pid      [90m│[39m
+[90m│[39m[1m[36m interpreter       [39m[22m[90m│[39m none                                 [90m│[39m
+[90m│[39m[1m[36m interpreter args  [39m[22m[90m│[39m N/A                                  [90m│[39m
+[90m│[39m[1m[36m script id         [39m[22m[90m│[39m 0                                    [90m│[39m
+[90m│[39m[1m[36m exec cwd          [39m[22m[90m│[39m /var/www/fbpage                      [90m│[39m
+[90m│[39m[1m[36m exec mode         [39m[22m[90m│[39m fork_mode                            [90m│[39m
+[90m│[39m[1m[36m node.js version   [39m[22m[90m│[39m N/A                                  [90m│[39m
+[90m│[39m[1m[36m node env          [39m[22m[90m│[39m N/A                                  [90m│[39m
+[90m│[39m[1m[36m watch & reload    [39m[22m[90m│[39m ✘                                    [90m│[39m
+[90m│[39m[1m[36m unstable restarts [39m[22m[90m│[39m 0                                    [90m│[39m
+[90m│[39m[1m[36m created at        [39m[22m[90m│[39m N/A                                  [90m│[39m
+[90m└───────────────────┴──────────────────────────────────────┘[39m
+[7m[1m Divergent env variables from local env [22m[27m
+[90m┌────────────────┬──────────────────────┐[39m
+[90m│[39m[1m[36m PWD            [39m[22m[90m│[39m /var/www/fbpage      [90m│[39m
+[90m│[39m[1m[36m SSH_CONNECTION [39m[22m[90m│[39m 10.50.0.111 64101 10 [90m│[39m
+[90m│[39m[1m[36m SHLVL          [39m[22m[90m│[39m 1                    [90m│[39m
+[90m│[39m[1m[36m XDG_SESSION_ID [39m[22m[90m│[39m 112                  [90m│[39m
+[90m│[39m[1m[36m SSH_CLIENT     [39m[22m[90m│[39m 10.50.0.111 64101 33 [90m│[39m
+[90m│[39m[1m[36m PATH           [39m[22m[90m│[39m /usr/local/sbin:/usr [90m│[39m
+[90m│[39m[1m[36m SSH_TTY        [39m[22m[90m│[39m /dev/pts/1           [90m│[39m
+[90m└────────────────┴──────────────────────┘[39m
+
+[37m[3m Add your own code metrics: http://bit.ly/code-metrics[23m[39m
+[37m[3m Use `pm2 logs web-admin [--lines 1000]` to display logs[23m[39m
+[37m[3m Use `pm2 env 0` to display environment variables[23m[39m
+[37m[3m Use `pm2 monit` to monitor CPU and Memory usage[23m[39m web-admin
+
+
+===== PM2 LIST =====
+===== PM2 LIST =====
+[90m┌────┬──────────────┬──────────┬──────┬───────────┬──────────┬──────────┐[39m
+[90m│[39m[1m[36m id [39m[22m[90m│[39m[1m[36m name         [39m[22m[90m│[39m[1m[36m mode     [39m[22m[90m│[39m[1m[36m ↺    [39m[22m[90m│[39m[1m[36m status    [39m[22m[90m│[39m[1m[36m cpu      [39m[22m[90m│[39m[1m[36m memory   [39m[22m[90m│[39m
+[90m├────┼──────────────┼──────────┼──────┼───────────┼──────────┼──────────┤[39m
+[90m│[39m[1m[36m [1m[36m0[39m[36m[22m[1m  [39m[22m[90m│[39m web-admin    [90m│[39m [7m[1mfork[22m[27m     [90m│[39m 15   [90m│[39m [31m[1merrored[22m[39m   [90m│[39m 0%       [90m│[39m 0b       [90m│[39m
+[90m└────┴──────────────┴──────────┴──────┴───────────┴──────────┴──────────┘[39m
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: [32m0.3%[39m | [1mram usage[22m: [32m21.9%[39m | [1meth0.50[22m: ⇓ [32m0.007mb/s[39m ⇑ 0mb/s | [1meth0.209[22m: ⇓ 0mb/s ⇑ [32m0.001mb/s[39m |
+
+
+===== PROCESS START TIME =====
+===== PROCESS START TIME =====
+PID=0
+error: process ID out of range
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+
+
+===== WEB ADMIN LOGS =====
+===== WEB ADMIN LOGS =====
+[TAILING] Tailing last 300 lines for [web-admin] process (change the value with --lines option)
+/root/.pm2/logs/web-admin-out.log last 300 lines:
+0|web-admi | 
+0|web-admi | > web-admin@1.0.0 start
+0|web-admi | > next start
+0|web-admi | 
+0|web-admi |   ▲ Next.js 14.2.5
+0|web-admi |   - Local:        http://localhost:3000
+0|web-admi | 
+0|web-admi |  ✓ Starting...
+0|web-admi |  ✓ Ready in 707ms
+
+/root/.pm2/logs/web-admin-error.log last 300 lines:
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | npm warn exec The following package was not found and will be installed: next@16.3.0
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+0|web-admi | /usr/bin/bash: line 1: pnpm: command not found
+
+
+
+===== PM2 LOG FILES =====
+===== PM2 LOG FILES =====
+total 16K
+drwxr-xr-x 2 root root 4.0K Aug  9 20:01 .
+drwxr-xr-x 5 root root 4.0K Aug  9 20:12 ..
+-rw-r--r-- 1 root root 1.6K Aug  9 20:15 web-admin-error.log
+-rw-r--r-- 1 root root  138 Aug  9 20:01 web-admin-out.log
+
+
+===== WEB ADMIN ERROR LOG =====
+===== WEB ADMIN ERROR LOG =====
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+npm warn exec The following package was not found and will be installed: next@16.3.0
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+/usr/bin/bash: line 1: pnpm: command not found
+
+
+===== WEB ADMIN OUTPUT LOG =====
+===== WEB ADMIN OUTPUT LOG =====
+
+> web-admin@1.0.0 start
+> next start
+
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 707ms
+
+
+===== PM2 DAEMON LOG =====
+===== PM2 DAEMON LOG =====
+2026-08-09T20:00:19: PM2 log: ===============================================================================
+2026-08-09T20:00:19: PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+2026-08-09T20:00:19: PM2 log: Time                 : Sun Aug 09 2026 20:00:19 GMT+0000 (Coordinated Universal Time)
+2026-08-09T20:00:19: PM2 log: PM2 version          : 7.0.3
+2026-08-09T20:00:19: PM2 log: Node.js version      : 20.20.2
+2026-08-09T20:00:19: PM2 log: Current arch         : x64
+2026-08-09T20:00:19: PM2 log: PM2 home             : /root/.pm2
+2026-08-09T20:00:19: PM2 log: PM2 PID file         : /root/.pm2/pm2.pid
+2026-08-09T20:00:19: PM2 log: RPC socket file      : /root/.pm2/rpc.sock
+2026-08-09T20:00:19: PM2 log: BUS socket file      : /root/.pm2/pub.sock
+2026-08-09T20:00:19: PM2 log: Application log path : /root/.pm2/logs
+2026-08-09T20:00:19: PM2 log: Worker Interval      : 30000
+2026-08-09T20:00:19: PM2 log: Process dump file    : /root/.pm2/dump.pm2
+2026-08-09T20:00:19: PM2 log: Concurrent actions   : 2
+2026-08-09T20:00:19: PM2 log: SIGTERM timeout      : 1600
+2026-08-09T20:00:19: PM2 log: Runtime Binary       : /usr/bin/node
+2026-08-09T20:00:19: PM2 log: ===============================================================================
+2026-08-09T20:01:55: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:01:55: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:22: PM2 log: Stopping app:web-admin id:0
+2026-08-09T20:12:22: PM2 log: App [web-admin:0] exited with code [0] via signal [SIGINT]
+2026-08-09T20:12:22: PM2 log: pid=15409 msg=process tree killed (3 pids)
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error caught while calling pidusage
+2026-08-09T20:12:23: PM2 error: Error: No matching pid found
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] online
+2026-08-09T20:12:23: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:12:23: PM2 log: Script /usr/bin/bash had too many unstable restarts (16). Stopped. "errored"
+2026-08-09T20:12:23: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:14:56: PM2 log: Stopping app:web-admin id:0
+2026-08-09T20:14:56: PM2 error: app=web-admin id=0 does not have a pid
+2026-08-09T20:14:56: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:14:56: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:17: PM2 log: Stopping app:web-admin id:0
+2026-08-09T20:15:17: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:17: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:17: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:17: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:17: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:17: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: pid=17670 msg=failed to kill - retrying in 100ms
+2026-08-09T20:15:18: PM2 log: Process with pid 17670 still alive after 1600ms, sending SIGKILL to 1 remaining pids...
+2026-08-09T20:15:18: PM2 log: App [web-admin:0] exited with code [0] via signal [SIGKILL]
+2026-08-09T20:15:19: PM2 log: pid=17670 msg=process tree killed (1 pids)
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:19: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:19: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:19: PM2 error: Error caught while calling pidusage
+2026-08-09T20:15:19: PM2 error: Error: No matching pid found
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:19: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:19: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:19: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:19: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] starting in -fork mode-
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] online
+2026-08-09T20:15:20: PM2 log: App [web-admin:0] exited with code [127] via signal [SIGINT]
+2026-08-09T20:15:20: PM2 log: Script /usr/bin/bash had too many unstable restarts (16). Stopped. "errored"
+2026-08-09T20:15:20: PM2 error: Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+
+
+===== SYSTEM AROUND FAILURE =====
+===== SYSTEM AROUND FAILURE =====
+Aug 10 15:10:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:10:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:10:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:10:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:10:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:10:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:10:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:10:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:10:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:10:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:10:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:10:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:10:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:10:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:10:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:10:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:10:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:10:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:10:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:10:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:10:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:10:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:11:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:11:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:11:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:11:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:11:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:11:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:11:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:11:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:11:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:11:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:11:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:11:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:11:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:11:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:11:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:11:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:11:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:11:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:11:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:11:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:11:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:11:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:12:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:12:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:12:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:12:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:12:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:12:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:12:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:12:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:12:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:12:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:12:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:12:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:12:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:12:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:12:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:12:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:12:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:12:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:12:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:12:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:12:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:12:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:13:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:13:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:13:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:13:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:13:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:13:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:13:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:13:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:13:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:13:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:13:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:13:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:13:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:13:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:13:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:13:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:13:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:13:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:13:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:13:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:13:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:13:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:14:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:14:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:14:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:14:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:14:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:14:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:14:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:14:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:14:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:14:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:14:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:14:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:14:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:14:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:14:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:14:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:14:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:14:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:14:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:14:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:14:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:14:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:15:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:15:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:15:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:15:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:15:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:15:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:15:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:15:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:15:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:15:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:15:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:15:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:15:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:15:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:15:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:15:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:15:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:15:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:15:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:15:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:15:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:15:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:16:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:16:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:16:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:16:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:16:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:16:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:16:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:16:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:16:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:16:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:16:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:16:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:16:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:16:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:16:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:16:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:16:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:16:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:16:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:16:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:16:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:16:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:17:01 vps-trungkien-090826 CRON[53316]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Aug 10 15:17:01 vps-trungkien-090826 CRON[53317]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+Aug 10 15:17:01 vps-trungkien-090826 CRON[53316]: pam_unix(cron:session): session closed for user root
+Aug 10 15:17:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:17:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:17:11 vps-trungkien-090826 cloudflared[17370]: 2026-08-10T15:17:11Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 127.0.0.1:3000: connect: connection refused" connIndex=3 event=1 ingressRule=0 originService=http://localhost:3000
+Aug 10 15:17:11 vps-trungkien-090826 cloudflared[17370]: 2026-08-10T15:17:11Z ERR Request failed error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 127.0.0.1:3000: connect: connection refused" connIndex=3 dest=https://toolsfb.quynhanhbeauty.online/ event=0 ip=198.41.192.227 type=http
+Aug 10 15:17:11 vps-trungkien-090826 cloudflared[17370]: 2026-08-10T15:17:11Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 127.0.0.1:3000: connect: connection refused" connIndex=3 event=1 ingressRule=0 originService=http://localhost:3000
+Aug 10 15:17:11 vps-trungkien-090826 cloudflared[17370]: 2026-08-10T15:17:11Z ERR Request failed error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 127.0.0.1:3000: connect: connection refused" connIndex=3 dest=https://toolsfb.quynhanhbeauty.online/favicon.ico event=0 ip=198.41.192.227 type=http
+Aug 10 15:17:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:17:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:17:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:17:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:17:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:17:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:17:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:17:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:17:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:17:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:17:43 vps-trungkien-090826 dhclient[763]: DHCPREQUEST for 10.203.3.90 on eth0.209 to 10.203.0.1 port 67 (xid=0x20e7671)
+Aug 10 15:17:43 vps-trungkien-090826 dhclient[763]: DHCPACK of 10.203.3.90 from 10.203.0.1 (xid=0x71760e02)
+Aug 10 15:17:43 vps-trungkien-090826 dhclient[763]: bound to 10.203.3.90 -- renewal in 864 seconds.
+Aug 10 15:17:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:17:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:17:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:17:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:17:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:17:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:17:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:17:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:17:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:17:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:18:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:18:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:18:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:18:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:18:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:18:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:18:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:18:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:18:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:18:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:18:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:18:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:18:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:18:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:18:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:18:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:18:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:18:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:18:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:18:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:18:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:18:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:19:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:19:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:19:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:19:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:19:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:19:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:19:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:19:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:19:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:19:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:19:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:19:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:19:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:19:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:19:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:19:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:19:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:19:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:19:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:19:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:19:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:19:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:20:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:20:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:20:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:20:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:20:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:20:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:20:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:20:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:20:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:20:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:20:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:20:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:20:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:20:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:20:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:20:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:20:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:20:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:20:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:20:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:20:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:20:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:20:58 vps-trungkien-090826 cloudflared[17370]: 2026-08-10T15:20:58Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 127.0.0.1:3000: connect: connection refused" connIndex=3 event=1 ingressRule=0 originService=http://localhost:3000
+Aug 10 15:20:58 vps-trungkien-090826 cloudflared[17370]: 2026-08-10T15:20:58Z ERR Request failed error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 127.0.0.1:3000: connect: connection refused" connIndex=3 dest=https://toolsfb.quynhanhbeauty.online/ event=0 ip=198.41.192.227 type=http
+Aug 10 15:20:58 vps-trungkien-090826 cloudflared[17370]: 2026-08-10T15:20:58Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 127.0.0.1:3000: connect: connection refused" connIndex=3 event=1 ingressRule=0 originService=http://localhost:3000
+Aug 10 15:20:58 vps-trungkien-090826 cloudflared[17370]: 2026-08-10T15:20:58Z ERR Request failed error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp 127.0.0.1:3000: connect: connection refused" connIndex=3 dest=https://toolsfb.quynhanhbeauty.online/favicon.ico event=0 ip=198.41.192.227 type=http
+Aug 10 15:21:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:21:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:21:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:21:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:21:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:21:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:21:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:21:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:21:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:21:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:21:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:21:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:21:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:21:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:21:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:21:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:21:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:21:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:21:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:21:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:21:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:21:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:22:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:22:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:22:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:22:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:22:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:22:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:22:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:22:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:22:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:22:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:22:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:22:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:22:28 vps-trungkien-090826 sshd[53375]: Accepted password for root from 10.50.0.111 port 62577 ssh2
+Aug 10 15:22:28 vps-trungkien-090826 sshd[53375]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)
+Aug 10 15:22:28 vps-trungkien-090826 systemd-logind[669]: New session 135 of user root.
+Aug 10 15:22:28 vps-trungkien-090826 systemd[1]: Started Session 135 of User root.
+Aug 10 15:22:30 vps-trungkien-090826 sshd[53375]: pam_unix(sshd:session): session closed for user root
+Aug 10 15:22:30 vps-trungkien-090826 systemd[1]: session-135.scope: Deactivated successfully.
+Aug 10 15:22:30 vps-trungkien-090826 systemd[1]: session-135.scope: Consumed 1.326s CPU time.
+Aug 10 15:22:30 vps-trungkien-090826 systemd-logind[669]: Session 135 logged out. Waiting for processes to exit.
+Aug 10 15:22:30 vps-trungkien-090826 systemd-logind[669]: Removed session 135.
+Aug 10 15:22:40 vps-trungkien-090826 sshd[53491]: Accepted password for root from 10.50.0.111 port 62310 ssh2
+Aug 10 15:22:40 vps-trungkien-090826 sshd[53491]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)
+Aug 10 15:22:40 vps-trungkien-090826 systemd-logind[669]: New session 136 of user root.
+Aug 10 15:22:40 vps-trungkien-090826 systemd[1]: Started Session 136 of User root.
+Aug 10 15:22:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:22:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:22:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:22:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:22:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:22:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:22:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:22:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:22:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:22:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:23:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:23:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:23:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:23:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:23:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:23:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:23:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:23:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:23:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:23:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:23:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:23:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:23:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:23:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:23:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:23:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:23:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:23:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:23:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:23:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:23:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:23:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:24:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:24:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:24:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:24:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:24:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:24:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:24:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:24:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:24:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:24:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:24:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:24:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:24:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:24:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:24:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:24:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:24:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:24:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:24:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:24:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:24:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:24:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:25:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:25:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:25:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:25:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:25:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:25:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:25:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:25:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:25:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:25:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:25:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:25:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:25:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:25:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:25:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:25:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:25:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:25:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:25:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:25:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:25:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:25:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:26:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:26:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:26:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:26:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:26:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:26:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:26:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:26:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:26:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:26:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:26:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:26:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:26:27 vps-trungkien-090826 sshd[53580]: Accepted password for root from 10.50.0.10 port 59850 ssh2
+Aug 10 15:26:27 vps-trungkien-090826 sshd[53580]: pam_unix(sshd:session): session opened for user root(uid=0) by (uid=0)
+Aug 10 15:26:27 vps-trungkien-090826 systemd-logind[669]: New session 137 of user root.
+Aug 10 15:26:27 vps-trungkien-090826 systemd[1]: Started Session 137 of User root.
+Aug 10 15:26:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:26:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:26:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:26:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:26:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:26:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:26:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:26:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:26:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:26:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:27:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:27:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:27:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:27:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:27:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:27:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:27:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:27:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:27:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:27:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:27:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:27:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:27:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:27:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:27:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:27:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:27:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:27:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:27:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:27:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:27:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:27:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:28:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:28:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:28:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:28:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:28:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:28:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:28:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:28:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:28:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:28:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:28:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:28:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:28:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:28:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:28:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:28:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:28:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:28:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:28:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:28:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:28:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:28:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:29:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 172.16.35.1, on dev eth0[0m
+Aug 10 15:29:01 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 15 de 8a 08 00[0m
+Aug 10 15:29:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:29:13 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:29:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:29:18 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:29:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:29:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:29:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:29:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+Aug 10 15:29:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:29:21 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:29:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.41, on dev eth0[0m
+Aug 10 15:29:43 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 9b 08 00[0m
+Aug 10 15:29:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.85, on dev eth0[0m
+Aug 10 15:29:48 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8e 58 08 00[0m
+Aug 10 15:29:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.23.97, on dev eth0[0m
+Aug 10 15:29:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 60 be b4 29 8c d4 08 00[0m
+Aug 10 15:29:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:29:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 5c 3b 6b 70 94 7b 08 00[0m
+Aug 10 15:29:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mIPv4: martian source 255.255.255.255 from 192.168.20.1, on dev eth0[0m
+Aug 10 15:29:51 vps-trungkien-090826 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mll header: 00000000: ff ff ff ff ff ff 7c 3b 6b 70 94 7c 08 00[0m
+
+
+===== OOM / MEMORY KILL =====
+===== OOM / MEMORY KILL =====
+
+
+===== CURRENT MEMORY =====
+===== CURRENT MEMORY =====
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       231Mi       319Mi        20Mi       1.4Gi       1.5Gi
+Swap:          1.7Gi       1.0Mi       1.7Gi
+
+
+===== DISK =====
+===== DISK =====
+Filesystem                         Size  Used Avail Use% Mounted on
+tmpfs                              197M   21M  176M  11% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv   19G  6.0G   12G  34% /
+tmpfs                              982M     0  982M   0% /dev/shm
+tmpfs                              5.0M     0  5.0M   0% /run/lock
+/dev/sda2                          1.7G  259M  1.4G  16% /boot
+tmpfs                              197M     0  197M   0% /run/user/0
+
+
+===== PM2 STARTUP =====
+===== PM2 STARTUP =====
+pm2-root.service                       enabled         enabled
+○ pm2-root.service - PM2 process manager
+     Loaded: loaded (/etc/systemd/system/pm2-root.service; enabled; vendor preset: enabled)
+     Active: inactive (dead)
+       Docs: https://pm2.keymetrics.io/
+
+
+===== SAVED PM2 CONFIG =====
+===== SAVED PM2 CONFIG =====
+-rw-r--r-- 1 root root 2.9K Aug  9 20:15 /root/.pm2/dump.pm2
+[
+  {
+    pid: 0,
+    name: 'web-admin',
+    pm2_env: {
+      name: 'web-admin',
+      filter_env: [],
+      namespace: 'default',
+      args: [ '-c', 'pnpm --filter web-admin run start' ],
+      env: {
+        SHELL: '/bin/bash',
+        PWD: '/var/www/fbpage',
+        LOGNAME: 'root',
+        XDG_SESSION_TYPE: 'tty',
+        MOTD_SHOWN: 'pam',
+        HOME: '/root',
+        LANG: 'en_US.UTF-8',
+        SSH_CONNECTION: '10.50.0.111 64101 10.50.12.152 3389',
+        XDG_SESSION_CLASS: 'user',
+        TERM: 'vt100',
+        USER: 'root',
+        SHLVL: '1',
+        XDG_SESSION_ID: '112',
+        XDG_RUNTIME_DIR: '/run/user/0',
+        SSH_CLIENT: '10.50.0.111 64101 3389',
+        PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin',
+        DBUS_SESSION_BUS_ADDRESS: 'unix:path=/run/user/0/bus',
+        SSH_TTY: '/dev/pts/1',
+        _: '/usr/bin/pm2',
+        OLDPWD: '/root',
+        PM2_USAGE: 'CLI',
+        PM2_HOME: '/root/.pm2',
+        'web-admin': {},
+        unique_id: 'af61768c-1b7f-48fe-a427-ff9804070f4a'
+      },
+      merge_logs: true,
+      vizion: true,
+      autostart: true,
+      autorestart: true,
+      watch: false,
+      instance_var: 'NODE_APP_INSTANCE',
+      pmx: true,
+      automation: true,
+      treekill: true,
+      username: 'root',
+      windowsHide: true,
+      kill_retry_time: 100,
+      node_args: [],
+      pm_exec_path: '/usr/bin/bash',
+      pm_cwd: '/var/www/fbpage',
+      exec_interpreter: 'none',
+      exec_mode: 'fork_mode',
+      instances: 1,
+      pm_out_log_path: '/root/.pm2/logs/web-admin-out.log',
+      pm_err_log_path: '/root/.pm2/logs/web-admin-error.log',
+      pm_pid_path: '/root/.pm2/pids/web-admin-0.pid',
+      km_link: false,
+      vizion_running: false,
+      NODE_APP_INSTANCE: 0,
+      SHELL: '/bin/bash',
+      PWD: '/var/www/fbpage',
+      LOGNAME: 'root',
+      XDG_SESSION_TYPE: 'tty',
+      MOTD_SHOWN: 'pam',
+      HOME: '/root',
+      LANG: 'en_US.UTF-8',
+      SSH_CONNECTION: '10.50.0.111 64101 10.50.12.152 3389',
+      XDG_SESSION_CLASS: 'user',
+      TERM: 'vt100',
+      USER: 'root',
+      SHLVL: '1',
+      XDG_SESSION_ID: '112',
+      XDG_RUNTIME_DIR: '/run/user/0',
+      SSH_CLIENT: '10.50.0.111 64101 3389',
+      PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin',
+      DBUS_SESSION_BUS_ADDRESS: 'unix:path=/run/user/0/bus',
+      SSH_TTY: '/dev/pts/1',
+      _: '/usr/bin/pm2',
+      OLDPWD: '/root',
+      PM2_USAGE: 'CLI',
+      PM2_HOME: '/root/.pm2',
+      unique_id: 'af61768c-1b7f-48fe-a427-ff9804070f4a',
+      status: 'errored',
+      pm_uptime: 1786306520132,
+      axm_actions: [],
+      axm_monitor: {},
+      axm_options: {},
+      axm_dynamic: {},
+      created_at: null,
+      pm_id: 0,
+      restart_time: 15,
+      unstable_restarts: 0,
+      version: 'N/A',
+      exit_code: 127
+    },
+    pm_id: 0,
+    monit: { memory: 0, cpu: 0 }
+  }
+]

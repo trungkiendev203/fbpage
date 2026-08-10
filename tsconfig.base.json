@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "lib": ["ES2022"],
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "shared-types": ["packages/shared-types/dist"],
+      "secret-manager": ["packages/secret-manager/dist"],
+      "facebook-client": ["packages/facebook-client/dist"],
+      "media-processor": ["packages/media-processor/dist"],
+      "scraper-adapters": ["packages/scraper-adapters/dist"],
+      "ai-gemini": ["packages/ai-gemini/dist"],
+      "db-prisma": ["packages/db-prisma/dist"]
+    }
+  }
+}

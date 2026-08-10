@@ -1,0 +1,413 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  SUPER_ADMIN
+  EDITOR
+  REVIEWER
+  VIEWER
+}
+
+enum SourceType {
+  RSS
+  HTML_SCRAPE
+}
+
+enum SourceStatus {
+  ACTIVE
+  PAUSED
+  ERROR_DISABLED
+}
+
+enum RunStatus {
+  SUCCESS
+  PARTIAL_SUCCESS
+  FAILED
+}
+
+enum GenerationStatus {
+  PENDING
+  GENERATING
+  GENERATED
+  FAILED
+}
+
+enum ReviewStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  REJECTED
+  INVALIDATED
+}
+
+enum ApprovalAction {
+  APPROVED
+  REJECTED
+  INVALIDATED
+}
+
+enum PublicationStatus {
+  SCHEDULED
+  QUEUED
+  PUBLISHING
+  PUBLISHED
+  RETRY_WAIT
+  UNKNOWN
+  FAILED_PERMANENT
+  CANCELLED
+}
+
+enum OutboxStatus {
+  PENDING
+  PROCESSING
+  PROCESSED
+  FAILED
+}
+
+enum RightsStatus {
+  PUBLIC_DOMAIN
+  CREATIVE_COMMONS
+  FAIR_USE_NEWS
+  REQUIRES_PERMISSION
+  UNKNOWN
+}
+
+model User {
+  id                        String       @id @default(uuid())
+  email                     String       @unique
+  passwordHash              String
+  fullName                  String
+  isMfaEnabled              Boolean      @default(false)
+  mfaSecretEncrypted        String?
+  mfaRecoveryCodesEncrypted String?
+  version                   Int          @default(1)
+  createdAt                 DateTime     @default(now())
+  updatedAt                 DateTime     @updatedAt
+
+  roles                     UserRole[]
+  sessions                  Session[]
+  approvals                 Approval[]
+  auditEvents               AuditEvent[]
+
+  @@map("users")
+}
+
+model UserRole {
+  id        String   @id @default(uuid())
+  userId    String
+  role      Role
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, role])
+  @@map("user_roles")
+}
+
+model Session {
+  id           String    @id @default(uuid())
+  userId       String
+  tokenHash    String    @unique
+  ipAddress    String
+  userAgent    String
+  expiresAt    DateTime
+  revokedAt    DateTime?
+  createdAt    DateTime  @default(now())
+
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+model Source {
+  id              String       @id @default(uuid())
+  name            String
+  url             String       @unique
+  type            SourceType
+  status          SourceStatus @default(ACTIVE)
+  selectorsJson   Json?
+  intervalMinutes Int          @default(5)
+  failureCount    Int          @default(0)
+  lastRunAt       DateTime?
+  version         Int          @default(1)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  runs            SourceRun[]
+  articles        Article[]
+
+  @@map("sources")
+}
+
+model SourceRun {
+  id           String    @id @default(uuid())
+  sourceId     String
+  status       RunStatus
+  itemCount    Int       @default(0)
+  errorMessage String?
+  executedAt   DateTime  @default(now())
+
+  source       Source    @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@index([sourceId, executedAt])
+  @@map("source_runs")
+}
+
+model Article {
+  id             String   @id @default(uuid())
+  sourceId       String
+  externalId     String?
+  canonicalUrl   String   @unique
+  urlHash        String   @unique
+  title          String
+  rawSummary     String?
+  rawContent     String?  @db.Text
+  author         String?
+  publishedAt    DateTime?
+  fetchedAt      DateTime @default(now())
+  version        Int      @default(1)
+
+  source         Source   @relation(fields: [sourceId], references: [id])
+  snapshots      ExtractionMetadata[]
+  posts          Post[]
+
+  @@unique([sourceId, externalId])
+  @@index([sourceId])
+  @@index([fetchedAt])
+  @@map("articles")
+}
+
+model ExtractionMetadata {
+  id          String    @id @default(uuid())
+  articleId   String
+  storagePath String?
+  rawHtmlHash String
+  httpStatus  Int
+  headersJson Json
+  expiresAt   DateTime?
+  extractedAt DateTime  @default(now())
+
+  article     Article   @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@index([articleId])
+  @@map("extraction_metadata")
+}
+
+model PromptVersion {
+  id             String   @id @default(uuid())
+  version        Int      @unique
+  promptTemplate String   @db.Text
+  jsonSchema     Json
+  modelName      String
+  isActive       Boolean  @default(false)
+  createdAt      DateTime @default(now())
+
+  posts          Post[]
+
+  @@map("prompt_versions")
+}
+
+model Post {
+  id                    String           @id @default(uuid())
+  articleId             String
+  promptVersionId       String
+  generationStatus      GenerationStatus @default(PENDING)
+  reviewStatus          ReviewStatus     @default(DRAFT)
+  currentRevisionId     String?          @unique
+  isAutoPublishEligible Boolean          @default(false)
+  sensitivityFlag       Boolean          @default(false)
+  version               Int              @default(1)
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
+
+  article               Article          @relation(fields: [articleId], references: [id])
+  promptVersion         PromptVersion    @relation(fields: [promptVersionId], references: [id])
+  currentRevision       PostRevision?    @relation("CurrentPostRevision", fields: [currentRevisionId], references: [id])
+  revisions             PostRevision[]   @relation("AllPostRevisions")
+  publications          Publication[]
+
+  @@index([articleId])
+  @@index([reviewStatus])
+  @@map("posts")
+}
+
+model PostRevision {
+  id               String       @id @default(uuid())
+  postId           String
+  revisionNumber   Int
+  caption          String       @db.Text
+  mediaAssetId     String?
+  inputHash        String
+  aiResponseRaw    Json?
+  aiSafetyResult   Json?
+  inputTokenCount  Int          @default(0)
+  outputTokenCount Int          @default(0)
+  estimatedCostUsd Decimal      @db.Decimal(10, 6) @default(0)
+  createdAt        DateTime     @default(now())
+
+  post             Post         @relation("AllPostRevisions", fields: [postId], references: [id], onDelete: Cascade)
+  postForCurrent   Post?        @relation("CurrentPostRevision")
+  mediaAsset       MediaAsset?  @relation(fields: [mediaAssetId], references: [id])
+  approvals        Approval[]
+  publications     Publication[]
+
+  @@unique([postId, revisionNumber])
+  @@unique([id, postId])
+  @@index([postId])
+  @@map("post_revisions")
+}
+
+model MediaAsset {
+  id            String       @id @default(uuid())
+  originalUrl   String
+  storagePath   String
+  sha256Hash    String       @unique
+  mimeType      String
+  fileSizeBytes Int
+  width         Int?
+  height        Int?
+  rightsStatus  RightsStatus @default(UNKNOWN)
+  isApproved    Boolean      @default(false)
+  createdAt     DateTime     @default(now())
+
+  postRevisions PostRevision[]
+
+  @@map("media_assets")
+}
+
+model Approval {
+  id             String         @id @default(uuid())
+  postRevisionId String
+  userId         String
+  action         ApprovalAction
+  note           String?
+  createdAt      DateTime       @default(now())
+
+  postRevision   PostRevision   @relation(fields: [postRevisionId], references: [id], onDelete: Cascade)
+  user           User           @relation(fields: [userId], references: [id])
+
+  @@index([postRevisionId])
+  @@map("approvals")
+}
+
+model FacebookPage {
+  id                   String   @id @default(uuid())
+  pageId               String   @unique
+  name                 String
+  encryptedAccessToken String   @db.Text
+  tokenExpiresAt       DateTime?
+  isValid              Boolean  @default(true)
+  version              Int      @default(1)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  publications         Publication[]
+
+  @@map("facebook_pages")
+}
+
+model Publication {
+  id                 String            @id @default(uuid())
+  postId             String
+  postRevisionId     String
+  facebookPageId     String
+  status             PublicationStatus @default(SCHEDULED)
+  scheduledAt        DateTime
+  publishedAt        DateTime?
+  fbPostId           String?
+  idempotencyKey     String            @unique
+  leaseOwner         String?
+  leaseExpiresAt     DateTime?
+  lastHeartbeatAt    DateTime?
+  requestStartedAt   DateTime?
+  requestCompletedAt DateTime?
+  version            Int               @default(1)
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+
+  post               Post              @relation(fields: [postId], references: [id])
+  postRevision       PostRevision      @relation(fields: [postRevisionId, postId], references: [id, postId])
+  facebookPage       FacebookPage      @relation(fields: [facebookPageId], references: [id])
+  attempts           PublicationAttempt[]
+
+  @@unique([facebookPageId, fbPostId])
+  @@index([status, scheduledAt])
+  @@index([postId])
+  @@index([postRevisionId])
+  @@map("publications")
+}
+
+model PublicationAttempt {
+  id             String            @id @default(uuid())
+  publicationId  String
+  attemptNumber  Int
+  status         PublicationStatus
+  httpStatusCode Int?
+  errorCode      Int?
+  errorMessage   String?           @db.Text
+  rawResponse    Json?
+  executedAt     DateTime          @default(now())
+
+  publication    Publication       @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+
+  @@unique([publicationId, attemptNumber])
+  @@index([publicationId])
+  @@map("publication_attempts")
+}
+
+model OutboxEvent {
+  id             String       @id @default(uuid())
+  dedupeKey      String       @unique
+  aggregateType  String
+  aggregateId    String
+  eventType      String
+  payloadJson    Json
+  status         OutboxStatus @default(PENDING)
+  lockedBy       String?
+  lockedAt       DateTime?
+  leaseExpiresAt DateTime?
+  retryCount     Int          @default(0)
+  scheduledAt    DateTime     @default(now())
+  processedAt    DateTime?
+  errorMessage   String?
+
+  @@index([status, scheduledAt])
+  @@map("outbox_events")
+}
+
+model AuditEvent {
+  id           String   @id @default(uuid())
+  userId       String?
+  action       String
+  resourceType String
+  resourceId   String?
+  ipAddress    String
+  userAgent    String
+  payloadBefore Json?
+  payloadAfter  Json?
+  createdAt    DateTime @default(now())
+
+  user         User?    @relation(fields: [userId], references: [id])
+
+  @@index([createdAt])
+  @@index([userId])
+  @@map("audit_events")
+}
+
+model AppSetting {
+  id                  String   @id @default(uuid())
+  key                 String   @unique
+  encryptedValue      String?  @db.Text
+  plainValue          String?  @db.Text
+  isSecret            Boolean  @default(false)
+  updatedByUserId     String?
+  version             Int      @default(1)
+  updatedAt           DateTime @updatedAt
+
+  @@map("app_settings")
+}
