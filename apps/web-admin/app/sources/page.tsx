@@ -18,7 +18,7 @@ export default function SourceControlCenterPage() {
   const fetchSources = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:4000/api/v1/sources', { credentials: 'include' });
+      const res = await fetch('/api/v1/sources', { credentials: 'include' });
       const data = await res.json();
       const rawSources = data.data || [];
       const mapped = rawSources.map((s: any) => ({
@@ -42,7 +42,7 @@ export default function SourceControlCenterPage() {
   const handleTestScrape = async (id: string) => {
     setTestingId(id);
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/sources/${id}/test`, {
+      const res = await fetch(`/api/v1/sources/${id}/test`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -67,7 +67,7 @@ export default function SourceControlCenterPage() {
   const handleConfirmDelete = async () => {
     if (!deleteTarget) return;
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/sources/${deleteTarget.id}`, {
+      const res = await fetch(`/api/v1/sources/${deleteTarget.id}`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -87,7 +87,7 @@ export default function SourceControlCenterPage() {
   const handleCreateSource = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:4000/api/v1/sources', {
+      const res = await fetch('/api/v1/sources', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

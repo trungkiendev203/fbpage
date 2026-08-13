@@ -47,7 +47,7 @@ export default function Sidebar({ isMobileOpen = false, onMobileClose }: Sidebar
               <Facebook className="w-5 h-5 fill-current" />
             </div>
             <div>
-              <h1 className="text-sm font-bold text-white tracking-tight">FB-Publisher</h1>
+              <h1 className="text-sm font-bold text-white tracking-tight">Tools FB</h1>
               <p className="text-[10px] text-slate-400 font-mono font-medium">Trung Tâm Vận Hành</p>
             </div>
           </div>

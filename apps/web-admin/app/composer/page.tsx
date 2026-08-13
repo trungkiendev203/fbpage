@@ -15,7 +15,7 @@ export default function SmartComposerPage() {
   useEffect(() => {
     const fetchPages = async () => {
       try {
-        const res = await fetch('http://localhost:4000/api/v1/facebook/pages', { credentials: 'include' });
+        const res = await fetch('/api/v1/facebook/pages', { credentials: 'include' });
         const data = await res.json();
         const rawPages = data.data || [];
         setPages(rawPages);

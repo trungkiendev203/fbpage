@@ -41,8 +41,8 @@ export default function ReviewInboxPage() {
     setLoading(true);
     try {
       const [postsRes, pagesRes] = await Promise.all([
-        fetch('http://localhost:4000/api/v1/posts?limit=50', { credentials: 'include' }),
-        fetch('http://localhost:4000/api/v1/facebook/pages', { credentials: 'include' }),
+        fetch('/api/v1/posts?limit=50', { credentials: 'include' }),
+        fetch('/api/v1/facebook/pages', { credentials: 'include' }),
       ]);
       const postsData = await postsRes.json();
       const pagesData = await pagesRes.json();
@@ -136,7 +136,7 @@ export default function ReviewInboxPage() {
   const handleApprove = async () => {
     if (!selectedItem) return;
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/posts/${selectedId}/approve`, {
+      const res = await fetch(`/api/v1/posts/${selectedId}/approve`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

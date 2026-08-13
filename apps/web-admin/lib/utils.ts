@@ -1,3 +1,5 @@
+export const API_BASE = process.env.NEXT_PUBLIC_API_URL || '';
+
 export function formatDate(dateString?: string | Date): string {
   if (!dateString) return '—';
   const d = new Date(dateString);

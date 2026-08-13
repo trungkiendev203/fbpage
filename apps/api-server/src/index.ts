@@ -312,9 +312,11 @@ app.get('/api/v1/facebook/pages', authenticateUser, async (_req, res) => {
   res.json({ data: sanitized });
 });
 
-app.get('/api/v1/facebook/oauth/login', (_req: Request, res: Response) => {
+app.get('/api/v1/facebook/oauth/login', (req: Request, res: Response) => {
   const appId = process.env.META_APP_ID || '4591458491138366';
-  const redirectUri = encodeURIComponent('http://localhost:4000/api/v1/facebook/oauth/callback');
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'https';
+  const host = req.headers['x-forwarded-host'] || req.headers.host || 'localhost:4000';
+  const redirectUri = encodeURIComponent(`${protocol}://${host}/api/v1/facebook/oauth/callback`);
   const scope = encodeURIComponent('pages_read_engagement,pages_show_list,business_management');
   const authUrl = `https://www.facebook.com/v20.0/dialog/oauth?client_id=${appId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=token`;
   res.redirect(authUrl);

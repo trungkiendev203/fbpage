@@ -28,7 +28,7 @@ export default function PublishingOperationsPage() {
   const fetchPublications = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:4000/api/v1/publications', { credentials: 'include' });
+      const res = await fetch('/api/v1/publications', { credentials: 'include' });
       const data = await res.json();
       setPublications(data.data || []);
     } catch (err) {
@@ -45,7 +45,7 @@ export default function PublishingOperationsPage() {
   const handleForceRequeue = async (reason?: string) => {
     if (!requeueTarget) return;
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/publications/${requeueTarget.id}/reconcile`, {
+      const res = await fetch(`/api/v1/publications/${requeueTarget.id}/reconcile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -68,7 +68,7 @@ export default function PublishingOperationsPage() {
     e.preventDefault();
     if (!markPublishedTarget || !fbPostIdInput) return;
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/publications/${markPublishedTarget.id}/reconcile`, {
+      const res = await fetch(`/api/v1/publications/${markPublishedTarget.id}/reconcile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

@@ -21,10 +21,10 @@ export default function AnalyticsPage() {
     const fetchAnalytics = async () => {
       try {
         const [postsRes, pubsRes, sourcesRes, pagesRes] = await Promise.all([
-          fetch('http://localhost:4000/api/v1/posts', { credentials: 'include' }).catch(() => null),
-          fetch('http://localhost:4000/api/v1/publications', { credentials: 'include' }).catch(() => null),
-          fetch('http://localhost:4000/api/v1/sources', { credentials: 'include' }).catch(() => null),
-          fetch('http://localhost:4000/api/v1/facebook/pages', { credentials: 'include' }).catch(() => null),
+          fetch('/api/v1/posts', { credentials: 'include' }).catch(() => null),
+          fetch('/api/v1/publications', { credentials: 'include' }).catch(() => null),
+          fetch('/api/v1/sources', { credentials: 'include' }).catch(() => null),
+          fetch('/api/v1/facebook/pages', { credentials: 'include' }).catch(() => null),
         ]);
 
         const posts = postsRes ? (await postsRes.json()).data || [] : [];

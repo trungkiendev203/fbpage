@@ -8,7 +8,7 @@ export default function PostsReviewPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/v1/posts', {
+    fetch('/api/v1/posts', {
       credentials: 'include',
     })
       .then((res) => {

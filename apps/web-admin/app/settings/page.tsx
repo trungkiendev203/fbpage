@@ -20,7 +20,7 @@ export default function SettingsPage() {
   const fetchPages = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:4000/api/v1/facebook/pages', { credentials: 'include' });
+      const res = await fetch('/api/v1/facebook/pages', { credentials: 'include' });
       const data = await res.json();
       setPages(data.data || []);
     } catch (err) {
@@ -50,7 +50,7 @@ export default function SettingsPage() {
     const left = window.screenX + (window.outerWidth - width) / 2;
     const top = window.screenY + (window.outerHeight - height) / 2;
     window.open(
-      'http://localhost:4000/api/v1/facebook/oauth/login',
+      '/api/v1/facebook/oauth/login',
       'FacebookOAuthPopup',
       `width=${width},height=${height},left=${left},top=${top},scrollbars=yes`
     );
@@ -64,7 +64,7 @@ export default function SettingsPage() {
     setTesting(true);
     setTestResult(null);
     try {
-      const res = await fetch('http://localhost:4000/api/v1/facebook/pages/verify', {
+      const res = await fetch('/api/v1/facebook/pages/verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -92,7 +92,7 @@ export default function SettingsPage() {
   const handleTestExistingPage = async (pageId: string, pageName: string) => {
     setTestingRowId(pageId);
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/facebook/pages/${pageId}/test`, {
+      const res = await fetch(`/api/v1/facebook/pages/${pageId}/test`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -109,7 +109,7 @@ export default function SettingsPage() {
   const handleDeletePage = async (pageId: string, pageName: string) => {
     if (!confirm(`Bạn có chắc chắn muốn xóa Fanpage "${pageName}" khỏi hệ thống?`)) return;
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/facebook/pages/${pageId}`, {
+      const res = await fetch(`/api/v1/facebook/pages/${pageId}`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -130,7 +130,7 @@ export default function SettingsPage() {
     setSaving(true);
     setSuccessMsg('');
     try {
-      const res = await fetch('http://localhost:4000/api/v1/facebook/pages', {
+      const res = await fetch('/api/v1/facebook/pages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

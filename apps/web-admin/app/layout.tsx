@@ -3,7 +3,7 @@ import AppShell from '../components/shell/AppShell';
 import './globals.css';
 
 export const metadata = {
-  title: 'FB-Publisher Enterprise | Editorial Operations Cockpit',
+  title: 'Tools FB | Editorial Operations Cockpit',
   description: 'Trung tâm Vận hành Nội dung & Tự động hóa Facebook Page Chuyên nghiệp',
 };
 
