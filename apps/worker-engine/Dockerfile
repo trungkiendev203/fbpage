@@ -5,8 +5,7 @@ COPY package.json pnpm-workspace.yaml tsconfig.base.json ./
 COPY packages ./packages
 COPY apps/worker-engine ./apps/worker-engine
 RUN pnpm install --no-frozen-lockfile
-RUN pnpm --filter db-prisma run build
-RUN pnpm --filter worker-engine run build
+RUN pnpm --filter worker-engine... run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
