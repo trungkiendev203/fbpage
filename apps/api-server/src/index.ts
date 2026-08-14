@@ -295,9 +295,13 @@ app.post('/api/v1/sources/:id/test', authenticateUser, csrfProtection, async (re
       data: { lastRunAt: new Date() },
     });
 
-    // Auto-trigger AI generation & auto-publishing to Facebook
-    const { runAiGenerationWorker } = require('../../worker-engine/src/workers/ai-worker');
-    runAiGenerationWorker(prisma).catch((err: any) => console.error('[AI Auto-Publish Error]:', err));
+    // Auto-trigger AI generation (handled asynchronously by worker-engine service)
+    try {
+      const { runAiGenerationWorker } = require('../../worker-engine/src/workers/ai-worker');
+      runAiGenerationWorker(prisma).catch((err: any) => console.error('[AI Auto-Publish Error]:', err));
+    } catch {
+      // worker-engine runs in separate container and picks up articles automatically
+    }
 
     res.json({
       success: true,
