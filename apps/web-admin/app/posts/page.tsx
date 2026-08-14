@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { apiFetch } from '../../lib/utils';
 
 export default function PostsReviewPage() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -8,9 +9,7 @@ export default function PostsReviewPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/v1/posts', {
-      credentials: 'include',
-    })
+    apiFetch('/api/v1/posts')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch posts');
         return res.json();

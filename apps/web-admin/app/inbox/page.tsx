@@ -17,7 +17,7 @@ import {
 import StatusBadge from '../../components/ui/StatusBadge';
 import ConfirmDialog from '../../components/ui/ConfirmDialog';
 import { ReviewItem } from '../../types';
-import { formatDate } from '../../lib/utils';
+import { formatDate, apiFetch } from '../../lib/utils';
 
 export default function ReviewInboxPage() {
   const [items, setItems] = useState<ReviewItem[]>([]);
@@ -41,8 +41,8 @@ export default function ReviewInboxPage() {
     setLoading(true);
     try {
       const [postsRes, pagesRes] = await Promise.all([
-        fetch('/api/v1/posts?limit=50', { credentials: 'include' }),
-        fetch('/api/v1/facebook/pages', { credentials: 'include' }),
+        apiFetch('/api/v1/posts?limit=50'),
+        apiFetch('/api/v1/facebook/pages'),
       ]);
       if (!postsRes.ok || !pagesRes.ok) {
         throw new Error(`API trả về HTTP ${!postsRes.ok ? postsRes.status : pagesRes.status}`);
@@ -139,10 +139,9 @@ export default function ReviewInboxPage() {
   const handleApprove = async () => {
     if (!selectedItem) return;
     try {
-      const res = await fetch(`/api/v1/posts/${selectedId}/approve`, {
+      const res = await apiFetch(`/api/v1/posts/${selectedId}/approve`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
           caption: editedCaption,
           facebookPageId: targetPageId,

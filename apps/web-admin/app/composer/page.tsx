@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Link as LinkIcon, Image as ImageIcon, AlertTriangle, Save } from 'lucide-react';
 import FacebookPostPreview from '../../components/ui/FacebookPostPreview';
+import { apiFetch } from '../../lib/utils';
 
 export default function SmartComposerPage() {
   const [caption, setCaption] = useState('');
@@ -15,7 +16,7 @@ export default function SmartComposerPage() {
   useEffect(() => {
     const fetchPages = async () => {
       try {
-        const res = await fetch('/api/v1/facebook/pages', { credentials: 'include' });
+        const res = await apiFetch('/api/v1/facebook/pages');
         if (!res.ok) throw new Error(`API trả về HTTP ${res.status}`);
         const data = await res.json();
         const rawPages = data.data || [];

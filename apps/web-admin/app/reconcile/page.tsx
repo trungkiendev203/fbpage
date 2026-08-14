@@ -14,7 +14,7 @@ import StatusBadge from '../../components/ui/StatusBadge';
 import ConfirmDialog from '../../components/ui/ConfirmDialog';
 import DetailDrawer from '../../components/ui/DetailDrawer';
 import { Publication } from '../../types';
-import { formatDate, translateMetaError } from '../../lib/utils';
+import { formatDate, translateMetaError, apiFetch } from '../../lib/utils';
 
 export default function PublishingOperationsPage() {
   const [publications, setPublications] = useState<Publication[]>([]);
@@ -28,7 +28,7 @@ export default function PublishingOperationsPage() {
   const fetchPublications = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/v1/publications', { credentials: 'include' });
+      const res = await apiFetch('/api/v1/publications');
       const data = await res.json();
       setPublications(data.data || []);
     } catch (err) {
@@ -45,10 +45,9 @@ export default function PublishingOperationsPage() {
   const handleForceRequeue = async (reason?: string) => {
     if (!requeueTarget) return;
     try {
-      const res = await fetch(`/api/v1/publications/${requeueTarget.id}/reconcile`, {
+      const res = await apiFetch(`/api/v1/publications/${requeueTarget.id}/reconcile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ action: 'FORCE_REQUEUE', note: reason }),
       });
       const data = await res.json();
@@ -68,10 +67,9 @@ export default function PublishingOperationsPage() {
     e.preventDefault();
     if (!markPublishedTarget || !fbPostIdInput) return;
     try {
-      const res = await fetch(`/api/v1/publications/${markPublishedTarget.id}/reconcile`, {
+      const res = await apiFetch(`/api/v1/publications/${markPublishedTarget.id}/reconcile`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ action: 'MARK_PUBLISHED', fbPostId: fbPostIdInput }),
       });
       const data = await res.json();
