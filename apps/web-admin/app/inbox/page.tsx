@@ -44,6 +44,9 @@ export default function ReviewInboxPage() {
         fetch('/api/v1/posts?limit=50', { credentials: 'include' }),
         fetch('/api/v1/facebook/pages', { credentials: 'include' }),
       ]);
+      if (!postsRes.ok || !pagesRes.ok) {
+        throw new Error(`API trả về HTTP ${!postsRes.ok ? postsRes.status : pagesRes.status}`);
+      }
       const postsData = await postsRes.json();
       const pagesData = await pagesRes.json();
 

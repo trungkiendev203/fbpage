@@ -1,5 +1,29 @@
 export const API_BASE = process.env.NEXT_PUBLIC_API_URL || '';
 
+export function getCsrfToken(): string {
+  if (typeof document === 'undefined') return '';
+  const match = document.cookie.match(/(?:^|; )csrf_token=([^;]*)/);
+  return match ? decodeURIComponent(match[1]) : '';
+}
+
+export async function apiFetch(url: string, options: RequestInit = {}): Promise<Response> {
+  const method = (options.method || 'GET').toUpperCase();
+  const headers = new Headers(options.headers || {});
+
+  if (['POST', 'PUT', 'DELETE', 'PATCH'].includes(method)) {
+    const csrfToken = getCsrfToken();
+    if (csrfToken && !headers.has('x-csrf-token')) {
+      headers.set('x-csrf-token', csrfToken);
+    }
+  }
+
+  return fetch(url, {
+    ...options,
+    headers,
+    credentials: 'include',
+  });
+}
+
 export function formatDate(dateString?: string | Date): string {
   if (!dateString) return '—';
   const d = new Date(dateString);

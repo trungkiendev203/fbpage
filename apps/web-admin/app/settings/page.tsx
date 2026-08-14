@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { CheckCircle2, ShieldCheck, Lock, Activity, AlertCircle, Trash2, Share2 } from 'lucide-react';
+import { apiFetch } from '../../lib/utils';
 
 export default function SettingsPage() {
   const [pages, setPages] = useState<any[]>([]);
@@ -20,7 +21,8 @@ export default function SettingsPage() {
   const fetchPages = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/v1/facebook/pages', { credentials: 'include' });
+      const res = await apiFetch('/api/v1/facebook/pages');
+      if (!res.ok) throw new Error(`API trả về HTTP ${res.status}`);
       const data = await res.json();
       setPages(data.data || []);
     } catch (err) {
@@ -64,10 +66,9 @@ export default function SettingsPage() {
     setTesting(true);
     setTestResult(null);
     try {
-      const res = await fetch('/api/v1/facebook/pages/verify', {
+      const res = await apiFetch('/api/v1/facebook/pages/verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
           pageId: formData.pageId,
           accessToken: formData.accessToken,
@@ -92,9 +93,8 @@ export default function SettingsPage() {
   const handleTestExistingPage = async (pageId: string, pageName: string) => {
     setTestingRowId(pageId);
     try {
-      const res = await fetch(`/api/v1/facebook/pages/${pageId}/test`, {
+      const res = await apiFetch(`/api/v1/facebook/pages/${pageId}/test`, {
         method: 'POST',
-        credentials: 'include',
       });
       const data = await res.json();
       alert(`Fanpage "${pageName}":\n\n${data.message}`);
@@ -109,9 +109,8 @@ export default function SettingsPage() {
   const handleDeletePage = async (pageId: string, pageName: string) => {
     if (!confirm(`Bạn có chắc chắn muốn xóa Fanpage "${pageName}" khỏi hệ thống?`)) return;
     try {
-      const res = await fetch(`/api/v1/facebook/pages/${pageId}`, {
+      const res = await apiFetch(`/api/v1/facebook/pages/${pageId}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok) {
@@ -130,10 +129,9 @@ export default function SettingsPage() {
     setSaving(true);
     setSuccessMsg('');
     try {
-      const res = await fetch('/api/v1/facebook/pages', {
+      const res = await apiFetch('/api/v1/facebook/pages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify(formData),
       });
       const data = await res.json();

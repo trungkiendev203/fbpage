@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, Search, Bell, User as UserIcon, Facebook } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Menu, Search, Bell, User as UserIcon, Facebook, LogOut } from 'lucide-react';
 import Breadcrumb from './Breadcrumb';
 import SystemHealthIndicator from '../ui/SystemHealthIndicator';
 import CommandPalette from './CommandPalette';
@@ -11,15 +12,23 @@ interface TopBarProps {
 }
 
 export default function TopBar({ onMobileMenuToggle }: TopBarProps) {
+  const router = useRouter();
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
   const [pages, setPages] = useState<any[]>([]);
   const [selectedPage, setSelectedPage] = useState('');
   const [showNotifications, setShowNotifications] = useState(false);
 
+  const handleLogout = async () => {
+    await fetch('/api/v1/auth/logout', { method: 'POST', credentials: 'include' });
+    router.replace('/login');
+    router.refresh();
+  };
+
   useEffect(() => {
     const fetchPages = async () => {
       try {
         const res = await fetch('/api/v1/facebook/pages', { credentials: 'include' });
+        if (!res.ok) throw new Error(`API trả về HTTP ${res.status}`);
         const data = await res.json();
         const rawPages = data.data || [];
         setPages(rawPages);
@@ -113,6 +122,14 @@ export default function TopBar({ onMobileMenuToggle }: TopBarProps) {
                 <p className="text-xs font-bold text-slate-900">Super Admin</p>
                 <p className="text-[10px] text-slate-500 font-mono">admin@fbpage.local</p>
               </div>
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="p-1.5 text-slate-500 hover:text-red-600 rounded-md hover:bg-red-50"
+                title="Đăng xuất"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>

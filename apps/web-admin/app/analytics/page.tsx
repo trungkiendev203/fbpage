@@ -27,10 +27,10 @@ export default function AnalyticsPage() {
           fetch('/api/v1/facebook/pages', { credentials: 'include' }).catch(() => null),
         ]);
 
-        const posts = postsRes ? (await postsRes.json()).data || [] : [];
-        const pubs = pubsRes ? (await pubsRes.json()).data || [] : [];
-        const rawSources = sourcesRes ? (await sourcesRes.json()).data || [] : [];
-        const rawPages = pagesRes ? (await pagesRes.json()).data || [] : [];
+        const posts = postsRes?.ok ? (await postsRes.json()).data || [] : [];
+        const pubs = pubsRes?.ok ? (await pubsRes.json()).data || [] : [];
+        const rawSources = sourcesRes?.ok ? (await sourcesRes.json()).data || [] : [];
+        const rawPages = pagesRes?.ok ? (await pagesRes.json()).data || [] : [];
 
         const published = pubs.filter((p: any) => p.status === 'PUBLISHED').length;
         const totalPubs = pubs.length;

@@ -169,7 +169,17 @@ app.post('/api/v1/auth/logout', authenticateUser, async (req: AuthenticatedReque
 });
 
 app.get('/api/v1/auth/me', authenticateUser, (req: AuthenticatedRequest, res: Response) => {
-  res.json({ user: req.user });
+  let csrfToken = req.cookies?.['csrf_token'];
+  if (!csrfToken) {
+    csrfToken = crypto.randomBytes(16).toString('hex');
+    res.cookie('csrf_token', csrfToken, {
+      httpOnly: false,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 24 * 60 * 60 * 1000,
+    });
+  }
+  res.json({ user: req.user, csrfToken });
 });
 
 // Sources API Endpoints

@@ -80,6 +80,22 @@ services:
       postgres-db:
         condition: service_healthy
 
+  web-admin:
+    build:
+      context: ..
+      dockerfile: apps/web-admin/Dockerfile
+    container_name: fbpage-web-admin
+    restart: always
+    networks:
+      - fbpage-internal
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      NODE_ENV: production
+      API_INTERNAL_URL: http://api-server:4000
+    depends_on:
+      - api-server
+
   worker-engine:
     build:
       context: ..

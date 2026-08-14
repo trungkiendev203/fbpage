@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="bg-slate-50 text-slate-900 min-h-screen font-sans antialiased">
+      <body suppressHydrationWarning className="bg-slate-50 text-slate-900 min-h-screen font-sans antialiased">
         <AppShell>{children}</AppShell>
       </body>
     </html>

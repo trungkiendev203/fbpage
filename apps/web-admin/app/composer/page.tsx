@@ -16,6 +16,7 @@ export default function SmartComposerPage() {
     const fetchPages = async () => {
       try {
         const res = await fetch('/api/v1/facebook/pages', { credentials: 'include' });
+        if (!res.ok) throw new Error(`API trả về HTTP ${res.status}`);
         const data = await res.json();
         const rawPages = data.data || [];
         setPages(rawPages);

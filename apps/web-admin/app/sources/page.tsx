@@ -5,7 +5,7 @@ import { Globe, Plus, Trash2, RefreshCw } from 'lucide-react';
 import StatusBadge from '../../components/ui/StatusBadge';
 import ConfirmDialog from '../../components/ui/ConfirmDialog';
 import { NewsSource } from '../../types';
-import { formatDate } from '../../lib/utils';
+import { formatDate, apiFetch } from '../../lib/utils';
 
 export default function SourceControlCenterPage() {
   const [sources, setSources] = useState<NewsSource[]>([]);
@@ -18,7 +18,7 @@ export default function SourceControlCenterPage() {
   const fetchSources = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/v1/sources', { credentials: 'include' });
+      const res = await apiFetch('/api/v1/sources');
       const data = await res.json();
       const rawSources = data.data || [];
       const mapped = rawSources.map((s: any) => ({
@@ -42,9 +42,8 @@ export default function SourceControlCenterPage() {
   const handleTestScrape = async (id: string) => {
     setTestingId(id);
     try {
-      const res = await fetch(`/api/v1/sources/${id}/test`, {
+      const res = await apiFetch(`/api/v1/sources/${id}/test`, {
         method: 'POST',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok) {
@@ -67,9 +66,8 @@ export default function SourceControlCenterPage() {
   const handleConfirmDelete = async () => {
     if (!deleteTarget) return;
     try {
-      const res = await fetch(`/api/v1/sources/${deleteTarget.id}`, {
+      const res = await apiFetch(`/api/v1/sources/${deleteTarget.id}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok) {
@@ -87,10 +85,9 @@ export default function SourceControlCenterPage() {
   const handleCreateSource = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/v1/sources', {
+      const res = await apiFetch('/api/v1/sources', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify(formData),
       });
       const data = await res.json();

@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
+const apiInternalUrl =
+  process.env.API_INTERNAL_URL ||
+  (process.env.NODE_ENV === 'production' ? 'http://api-server:4000' : 'http://127.0.0.1:4000');
+
 const nextConfig = {
   async rewrites() {
     return [
       {
         source: '/api/:path*',
-        destination: process.env.API_INTERNAL_URL || 'http://127.0.0.1:4000/api/:path*',
+        destination: `${apiInternalUrl}/api/:path*`,
       },
     ];
   },
