@@ -47,7 +47,7 @@ export default function LoginPage() {
             <Facebook className="w-6 h-6 fill-current" />
           </div>
           <div>
-            <p className="text-lg font-extrabold tracking-tight">Tools FB</p>
+            <p className="text-lg font-extrabold tracking-tight">Kiên</p>
             <p className="text-xs font-mono text-slate-400">EDITORIAL OPERATIONS</p>
           </div>
         </div>

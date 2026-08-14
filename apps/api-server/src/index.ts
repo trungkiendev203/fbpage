@@ -25,6 +25,7 @@ const prisma = new PrismaClient();
 const secretManager = new SecretManager();
 const facebookClient = new MetaGraphApiClient();
 
+const PORT = process.env.PORT || 4000;
 const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000,http://127.0.0.1:3000,https://toolsfb.quynhanhbeauty.online').split(',').map((o) => o.trim());
 
 app.use(
@@ -859,13 +860,15 @@ const server = app.listen(PORT, () => {
 server.on('error', (err: NodeJS.ErrnoException) => {
   if (err.code === 'EADDRINUSE') {
     console.log(`[API Server] Port ${PORT} busy, killing old process...`);
-    const { execSync } = require('child_process');
-    try {
-      execSync(
-        `foreach ($c in (Get-NetTCPConnection -LocalPort ${PORT} -ErrorAction SilentlyContinue)) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue }`,
-        { shell: 'powershell.exe', timeout: 5000 }
-      );
-    } catch { /* ignore */ }
+    if (process.platform === 'win32') {
+      const { execSync } = require('child_process');
+      try {
+        execSync(
+          `foreach ($c in (Get-NetTCPConnection -LocalPort ${PORT} -ErrorAction SilentlyContinue)) { Stop-Process -Id $c.OwningProcess -Force -ErrorAction SilentlyContinue }`,
+          { shell: 'powershell.exe', timeout: 5000 }
+        );
+      } catch { /* ignore */ }
+    }
     setTimeout(() => {
       server.listen(PORT, () => {
         console.log(`[API Server] Secure API listening on http://localhost:${PORT} (retry)`);
