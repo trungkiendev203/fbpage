@@ -25,16 +25,20 @@ const prisma = new PrismaClient();
 const secretManager = new SecretManager();
 const facebookClient = new MetaGraphApiClient();
 
-const PORT = process.env.PORT || 4000;
-const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000,http://127.0.0.1:3000').split(',');
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000,http://127.0.0.1:3000,https://toolsfb.quynhanhbeauty.online').split(',').map((o) => o.trim());
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || ALLOWED_ORIGINS.includes(origin) || process.env.NODE_ENV !== 'production') {
+      if (
+        !origin ||
+        ALLOWED_ORIGINS.includes(origin) ||
+        ALLOWED_ORIGINS.includes('*') ||
+        process.env.NODE_ENV !== 'production'
+      ) {
         callback(null, true);
       } else {
-        callback(new Error('CORS Policy Violation'));
+        callback(null, origin);
       }
     },
     credentials: true,
