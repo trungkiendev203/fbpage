@@ -69,6 +69,37 @@ app.get('/health/readiness', async (_req, res) => {
   }
 });
 
+// Facebook Privacy Policy & Data Deletion
+app.get(['/privacy', '/privacy-policy'], (_req, res) => {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head><meta charset="UTF-8"><title>Chính sách Quyền riêng tư</title></head>
+    <body style="font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; color: #1e293b;">
+      <h1 style="color: #0f172a;">Chính sách Quyền riêng tư (Privacy Policy)</h1>
+      <p>Ứng dụng Quản lý Facebook Page chỉ sử dụng quyền đăng bài và phân tích số liệu Trang do người dùng ủy quyền. Chúng tôi cam kết không thu thập, mua bán hay chia sẻ thông tin người dùng cho bất kỳ bên thứ ba nào.</p>
+      <h2>Xóa dữ liệu</h2>
+      <p>Để xóa dữ liệu hoặc ngắt kết nối: Vào Cài đặt Facebook &gt; Tiện ích tích hợp cho doanh nghiệp &gt; Gỡ ứng dụng, hoặc liên hệ: <strong>hau01012027@gmail.com</strong>.</p>
+    </body>
+    </html>
+  `);
+});
+
+app.get('/data-deletion', (_req, res) => {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head><meta charset="UTF-8"><title>Hướng dẫn Xóa dữ liệu</title></head>
+    <body style="font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; color: #1e293b;">
+      <h1 style="color: #0f172a;">Hướng dẫn Xóa dữ liệu người dùng (User Data Deletion)</h1>
+      <p>Bạn có thể gỡ bỏ ứng dụng bất kỳ lúc nào trong phần Cài đặt Facebook hoặc gửi email tới <strong>hau01012027@gmail.com</strong> để yêu cầu xóa toàn bộ dữ liệu lưu trữ trong vòng 24 giờ.</p>
+    </body>
+    </html>
+  `);
+});
+
 // Facebook Webhook Verification GET
 app.get('/api/v1/webhooks/facebook', (req, res) => {
   const mode = req.query['hub.mode'];

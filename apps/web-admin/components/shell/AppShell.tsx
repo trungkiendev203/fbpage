@@ -15,8 +15,14 @@ export default function AppShell({ children }: AppShellProps) {
   const pathname = usePathname();
   const router = useRouter();
 
+  const isPublicRoute =
+    pathname === '/login' ||
+    pathname === '/privacy' ||
+    pathname === '/data-deletion' ||
+    pathname === '/terms';
+
   useEffect(() => {
-    if (pathname === '/login') {
+    if (isPublicRoute) {
       setIsAuthenticated(true);
       return;
     }
@@ -34,9 +40,9 @@ export default function AppShell({ children }: AppShellProps) {
     return () => {
       cancelled = true;
     };
-  }, [pathname, router]);
+  }, [pathname, router, isPublicRoute]);
 
-  if (pathname === '/login') return children;
+  if (isPublicRoute) return children;
 
   if (!isAuthenticated) {
     return (
