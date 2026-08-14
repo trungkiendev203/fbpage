@@ -70,7 +70,7 @@ services:
     networks:
       - fbpage-internal
     ports:
-      - "127.0.0.1:4000:4000"
+      - "4000:4000"
     environment:
       NODE_ENV: production
       PORT: 4000
@@ -89,7 +89,7 @@ services:
     networks:
       - fbpage-internal
     ports:
-      - "127.0.0.1:3000:3000"
+      - "3000:3000"
     environment:
       NODE_ENV: production
       API_INTERNAL_URL: http://api-server:4000
